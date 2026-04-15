@@ -1,0 +1,113 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+  transition: background 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+.scrolled {
+  background: rgba(245,243,238,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--border);
+}
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo span { color: var(--accent); }
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  margin-left: auto;
+}
+.links a {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--ink3);
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.2s;
+}
+.links a:hover,
+.activeLink {
+  color: var(--ink) !important;
+}
+.links a:hover::after,
+.activeLink::after {
+  width: 100% !important;
+}
+.cta {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 18px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.cta:hover { background: #333; transform: translateY(-1px); }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+}
+.burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: all 0.2s;
+}
+
+@media (max-width: 640px) {
+  .links {
+    display: none;
+    position: absolute;
+    top: 58px;
+    left: 0;
+    right: 0;
+    background: rgba(245,243,238,0.97);
+    flex-direction: column;
+    padding: 20px 28px 28px;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .open { display: flex; }
+  .burger { display: flex; }
+  .cta { display: none; }
+}

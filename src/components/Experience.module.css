@@ -1,0 +1,109 @@
+.section {
+  border-bottom: 1px solid var(--border);
+  padding: 72px 0;
+}
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink3);
+}
+.title {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--ink);
+}
+.list { display: flex; flex-direction: column; }
+.item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 36px 0;
+  border-top: 1px solid var(--border);
+}
+.item:first-of-type { border-top: none; padding-top: 0; }
+
+.meta { padding-top: 4px; }
+.company {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.period {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-bottom: 4px;
+}
+.loc {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 12px;
+}
+.current {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1a6e42;
+  letter-spacing: 0.5px;
+}
+.currentDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1a6e42;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.5; transform:scale(0.85); }
+}
+
+.role {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.bullet {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink2);
+}
+.bulletMark {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+.bullet:hover .bulletMark { background: var(--accent); }
+
+@media (max-width: 640px) {
+  .item { grid-template-columns: 1fr; gap: 16px; }
+  .meta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .loc, .period { margin-bottom: 0; }
+}

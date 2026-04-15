@@ -1,0 +1,66 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:       #f5f3ee;
+  --bg2:      #edeae3;
+  --bg3:      #ffffff;
+  --ink:      #111110;
+  --ink2:     #555450;
+  --ink3:     #999690;
+  --accent:   #1a56c4;
+  --accent2:  #e8eefa;
+  --gold:     #8a6500;
+  --gold-bg:  #fff8e0;
+  --gold-bd:  #e8d48a;
+  --green:    #1a6e42;
+  --border:   #dedad2;
+  --serif:    'Instrument Serif', Georgia, serif;
+  --sans:     'Geist', system-ui, sans-serif;
+  --radius:   8px;
+  --radius-lg:14px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+::selection { background: var(--accent2); color: var(--accent); }
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Cursor glow ── */
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,86,196,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: transform 0.1s ease;
+}
